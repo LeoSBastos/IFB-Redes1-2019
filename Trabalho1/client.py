@@ -8,7 +8,7 @@ while True:
         message = bytes(input("CLIENT >> "), encoding = 'utf-8')
         if message == "SAIR":
             break
-        with socket.socket(socket.AF_INET,socket.SOCK_STREAM) as s:
+        with socket.socket() as s:
             s.connect((host, port))
             s.sendall(message)
             data = s.recv(1024)
