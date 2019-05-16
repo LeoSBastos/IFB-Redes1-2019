@@ -33,15 +33,10 @@ class Email:
                 for part in em.get_payload():
                     if not part.is_multipart():
                         self.email = em.get_payload()[0]
-                        # if self.email[-3] == "=":
-                        #     self.email=base64.b64decode(self.email).decode("utf-8")
         else:
             self.email = em.get_payload()[0]
-            # if self.email[-3] == "=":
-            #     self.email=base64.b64decode(self.email).decode("utf-8")
 
         self.email_de = em.get("From")
         self.email_para = em.get("To")
         self.email_assunto = em.get("Subject")
         self.mailbox.close()
-        # return em.get("From"), em.get("To"), em.get("Subject")
